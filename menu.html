@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#c98a86">
+  <title>メニュー例（見本） | サンプルサロン BELLE</title>
+  <meta name="description" content="サンプルサロン BELLEのメニュー例（見本）のご案内です。美容室・ヘアサロンについてご相談ください。">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="サンプルサロン | 美容室サイトのリニューアル見本（テンプレートデモ）">
+  <meta property="og:description" content="美容室・サロン向けサイトリニューアルのテンプレート見本です。スマホ予約導線・tel:タップ発信・お客様の声枠・メニュー例・アクセスを備えた構成例。実店舗の情報に差し替えて制作します。">
+  <meta property="og:site_name" content="サンプルサロン BELLE">
+    <meta property="og:image" content="https://showcase-beauty-demo.onrender.com/img/salon-hero.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://showcase-beauty-demo.onrender.com/img/salon-hero.png">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%23c98a86%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2234%22%20font-size%3D%2236%22%20font-family%3D%22serif%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%3E%E3%82%B5%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #fdfaf9;
+    --bg-warm:   #f6edec;
+    --ink:       #2a2422;
+    --ink-soft:  #6b5d58;
+    --gold:      #c98a86;   /* ローズ（アクセント） */
+    --gold-lt:   #e3b3af;
+    --sage:      #a89a8c;   /* グレージュ（サブ） */
+    --cream:     #f1e7e4;
+    --white:     #ffffff;
+    --font-serif: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+    --font-body:  'Noto Sans JP', sans-serif;
+    --font-en:    'Jost', sans-serif;
+    --radius:     14px;
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+</style>
+
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"サンプルサロン BELLE","description":"美容室・サロン向けサイトリニューアルのテンプレート見本です。スマホ予約導線・tel:タップ発信・お客様の声枠・メニュー例・アクセスを備えた構成例。実店舗の情報に差し替えて制作します。","telephone":"058-000-0000","address":{"@type":"PostalAddress","postalCode":"","addressRegion":"岐阜県","addressLocality":"岐阜市","streetAddress":"サンプル町1-2-3"},"openingHours":"9:00〜19:00","image":"https://showcase-beauty-demo.onrender.com/img/salon-hero.png","url":"https://showcase-beauty-demo.onrender.com"}</script>
+
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.8;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      letter-spacing: 0.01em;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ::selection { background: var(--gold); color: var(--white); }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+    /* Subtle accent scrollbar */
+    html { scrollbar-color: var(--gold) var(--bg-warm); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-warm); }
+    ::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--gold) 55%, transparent); border-radius: 6px; border: 2px solid var(--bg-warm); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    /* ===== HEADER / NAV ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 72px;
+      background: rgba(250,248,245,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow var(--transition);
+    }
+    .site-header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+    .logo { display: flex; flex-direction: column; gap: 1px; }
+    .logo-ja { font-family: var(--font-serif); font-size: 15px; font-weight: 600; letter-spacing: 0.15em; color: var(--ink); }
+    .logo-en { font-family: var(--font-en); font-size: 9px; font-weight: 300; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: var(--font-en); font-size: 11px; font-weight: 300; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--ink-soft); position: relative; transition: color var(--transition);
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px;
+      background: var(--gold); transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold); color: var(--white) !important; padding: 10px 22px;
+      font-size: 11px !important; letter-spacing: 0.2em !important; border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: transparent !important; color: var(--gold) !important; }
+
+    /* ===== HEADER PHONE (desktop tap-to-call) ===== */
+    .header-right { display: flex; align-items: center; gap: 28px; }
+    .header-tel { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-en); font-size: 15px; font-weight: 600; letter-spacing: 0.04em; color: var(--gold); white-space: nowrap; transition: opacity var(--transition); }
+    .header-tel:hover { opacity: 0.72; }
+    .header-tel-icon { font-size: 13px; }
+
+    /* ===== HAMBURGER (mobile) ===== */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: var(--transition); }
+
+    /* ===== PAGE WRAPPER ===== */
+    .page-content { padding-top: 72px; }
+
+    /* ===== SECTION UTILITIES ===== */
+    .section { padding: 100px 0; }
+    .section--warm { background: var(--bg-warm); }
+    .section--cream { background: var(--cream); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .section-eyebrow {
+      font-family: var(--font-en); font-size: 10px; font-weight: 300; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(26px, 4vw, 38px); font-weight: 600;
+      line-height: 1.4; color: var(--ink); margin-bottom: 20px;
+    }
+    .section-body { color: var(--ink-soft); font-size: 14px; line-height: 2; max-width: 560px; }
+    .divider { width: 40px; height: 1px; background: var(--gold); margin-bottom: 32px; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block; padding: 14px 36px; font-family: var(--font-en); font-size: 11px;
+      font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; border: 1px solid var(--gold);
+      color: var(--gold); background: transparent; cursor: pointer;
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
+      border-radius: var(--radius);
+    }
+    .btn:hover { background: var(--gold); color: var(--white); box-shadow: 0 10px 24px color-mix(in srgb, var(--gold) 26%, transparent); transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); box-shadow: 0 4px 12px color-mix(in srgb, var(--gold) 20%, transparent); }
+    .btn--solid { background: var(--gold); color: var(--white); }
+    .btn--solid:hover { background: transparent; color: var(--gold); box-shadow: 0 10px 24px color-mix(in srgb, var(--gold) 22%, transparent); }
+
+    /* ===== FORM FOCUS RING (global; applies across contact variants) ===== */
+    .form-control:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent); }
+
+    /* ===== FOOTER ===== */
+    .site-footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 60px 0 30px; }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; margin-bottom: 48px;
+    }
+    .footer-logo-ja { font-family: var(--font-serif); font-size: 18px; color: var(--white); margin-bottom: 8px; }
+    .footer-logo-en { font-family: var(--font-en); font-size: 9px; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .footer-desc { font-size: 12px; line-height: 2; }
+    .footer-heading { font-family: var(--font-en); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); transition: color var(--transition), transform var(--transition); display: inline-block; }
+    .footer-links a:hover { color: var(--gold); transform: translateX(4px); }
+    .footer-info { font-size: 12px; line-height: 2.2; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-family: var(--font-en); font-size: 10px; letter-spacing: 0.2em; }
+
+    /* ===== FADE-IN ANIMATION ===== */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; will-change: opacity, transform; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== MOBILE STICKY CTA (tap-to-call) ===== */
+    .mobile-cta { display: none; }
+    .mobile-cta a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      flex: 1; padding: 15px 0; font-size: 14px; font-weight: 700; letter-spacing: 0.05em;
+      transition: filter 0.2s ease;
+    }
+    .mobile-cta a:active { filter: brightness(0.9); }
+    .mobile-cta .mc-tel { background: var(--gold); color: var(--white); }
+    .mobile-cta .mc-tel::before { content: "📞"; font-size: 15px; }
+    .mobile-cta .mc-reserve { background: var(--ink); color: var(--white); }
+    .mobile-cta .mc-reserve::before { content: "✉"; font-size: 15px; }
+
+    /* ===== REDUCED MOTION (a11y fallback) ===== */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .site-header { padding: 0 20px; }
+      .header-tel { display: none; }
+      .nav-links {
+        display: none;
+        position: absolute; top: 72px; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(250,248,245,0.98);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        padding: 8px 0 16px;
+      }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 13px; }
+      .nav-links .nav-cta { margin: 8px 24px 0; text-align: center; }
+      .hamburger { display: flex; }
+      .container { padding: 0 20px; }
+      .section { padding: 70px 0; }
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+      .site-footer { padding-bottom: 84px; }
+      .mobile-cta {
+        display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+        box-shadow: 0 -2px 16px rgba(0,0,0,0.15);
+      }
+    }
+  </style>
+  <noscript><style>.fade-in{opacity:1 !important;transform:none !important;}</style></noscript>
+</head>
+<body>
+
+<div id="__pwgate" style="position:fixed;inset:0;z-index:2147483647;background:#161616;color:#fff;display:flex;align-items:center;justify-content:center;font-family:sans-serif;padding:24px;">
+  <div style="max-width:360px;width:100%;text-align:center;">
+    <div style="font-size:14px;line-height:1.9;margin-bottom:18px;opacity:.92;">このサイトは関係者限定のプレビューです。<br>合言葉を入力してください。</div>
+    <input id="__pwin" type="password" autocomplete="off" placeholder="合言葉" style="width:100%;padding:12px 14px;font-size:16px;border:none;border-radius:8px;box-sizing:border-box;">
+    <button id="__pwbtn" style="width:100%;margin-top:12px;padding:12px;font-size:15px;border:none;border-radius:8px;background:#c0a062;color:#161616;font-weight:700;cursor:pointer;">表示する</button>
+    <div id="__pwer" style="height:18px;margin-top:10px;font-size:13px;color:#e98;"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY="__pwok1",HASH="54741ac0262691ce62d691ae52dfdcb16b1a4d490d49ba0a662093601a69975b",g=document.getElementById("__pwgate");
+  function open(){try{document.documentElement.style.overflow="";}catch(e){} if(g&&g.parentNode)g.parentNode.removeChild(g);}
+  function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(h){return Array.from(new Uint8Array(h)).map(function(x){return x.toString(16).padStart(2,"0");}).join("");});}
+  function unlock(){try{sessionStorage.setItem(KEY,"1");}catch(e){}open();}
+  try{if(sessionStorage.getItem(KEY)==="1"){open();return;}}catch(e){}
+  document.documentElement.style.overflow="hidden";
+  function go(){var v=document.getElementById("__pwin").value;sha(v).then(function(hx){if(hx===HASH){unlock();}else{document.getElementById("__pwer").textContent="合言葉が違います";}});}
+  document.getElementById("__pwbtn").addEventListener("click",go);
+  document.getElementById("__pwin").addEventListener("keydown",function(e){if(e.key==="Enter")go();});
+})();
+</script>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-ja">サンプルサロン BELLE</span>
+    <span class="logo-en">Sample Salon (Template Demo)</span>
+  </a>
+  <div class="header-right">
+    <nav>
+      <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="voice.html">Voice</a></li>
+          <li><a href="access.html">Access</a></li>
+          <li><a href="contact.html" class=nav-cta>Contact</a></li>
+      </ul>
+    </nav>
+      <a class="header-tel" href="tel:0580000000" aria-label="電話する"><span class="header-tel-icon">☎</span>058-000-0000</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main class="page-content">
+  
+<style>
+.page-hero { background: var(--ink); padding: 100px 0 70px; text-align: center; position: relative; overflow: hidden; }
+.page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 75% at 50% 118%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 70%); pointer-events: none; }
+.page-hero-eyebrow, .page-hero-title { position: relative; z-index: 1; }
+.page-hero-eyebrow { font-family: var(--font-en); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.page-hero-title { font-family: var(--font-serif); font-size: clamp(28px, 5vw, 48px); font-weight: 800; color: var(--white); }
+.service-list { display: grid; gap: 24px; }
+.service-card { background: var(--white); border: 1px solid rgba(184,149,90,0.16); padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; align-items: stretch; overflow: hidden; transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition); }
+.service-card:hover { border-color: var(--gold); box-shadow: 0 16px 44px color-mix(in srgb, var(--gold) 12%, transparent); transform: translateY(-4px); }
+.service-card.has-image { grid-template-columns: minmax(240px, 320px) 1fr; }
+.service-photo { position: relative; background: var(--cream); overflow: hidden; min-height: 240px; }
+.service-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+.service-card:hover .service-photo img { transform: scale(1.06); }
+.service-main { padding: 36px 40px; display: flex; flex-direction: column; }
+.service-icon { color: var(--gold); font-family: var(--font-serif); font-size: 22px; line-height: 1; margin-bottom: 14px; }
+.service-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 12px; }
+.service-name { font-family: var(--font-serif); font-size: 21px; line-height: 1.4; margin: 0; }
+.service-price { text-align: right; flex-shrink: 0; }
+.service-price-main { color: var(--gold); font-family: var(--font-serif); font-size: 20px; font-weight: 700; white-space: nowrap; }
+.service-price-note { color: var(--ink-soft); font-size: 12px; margin-top: 2px; }
+.service-desc { color: var(--ink-soft); font-size: 14px; line-height: 2; margin-bottom: auto; }
+.flow-section { background: var(--bg-warm); padding: 80px 0; }
+.flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.flow-step { background: rgba(255,255,255,0.68); border: 1px solid rgba(184,149,90,0.14); padding: 28px 24px; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+.flow-step:hover { background: var(--white); border-color: var(--gold); transform: translateY(-4px); }
+.flow-num { font-family: var(--font-en); color: var(--gold); font-size: 22px; margin-bottom: 10px; }
+.flow-label { font-family: var(--font-serif); font-weight: 700; margin-bottom: 8px; }
+.flow-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.9; }
+.service-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+@media (max-width: 768px) { .service-card.has-image { grid-template-columns: 1fr; } .service-photo { min-height: 0; aspect-ratio: 16 / 9; } .service-main { padding: 26px 24px; } .service-head { gap: 16px; } .flow-steps { grid-template-columns: 1fr; } }
+</style>
+
+<div class="page-hero">
+  <p class="page-hero-eyebrow">Menu</p>
+  <h1 class="page-hero-title">メニュー例（見本）</h1>
+</div>
+
+<section class="section">
+  <div class="container">
+    <span class="section-eyebrow fade-in">Menu</span>
+    <h2 class="section-title fade-in">メニュー例（見本）</h2>
+    <div class="divider fade-in"></div>
+
+    <div class="service-list">
+        <article class="service-card has-image fade-in">
+            <div class="service-photo"><img alt="カット" loading="lazy" decoding="async" src="img/salon-hero.png" /></div>
+          <div class="service-main">
+            <p class="service-icon">✂️</p>
+            <div class="service-head">
+              <h3 class="service-name">カット</h3>
+              <div class="service-price">
+                <p class="service-price-main">ご相談</p>
+                <p class="service-price-note">見本</p>
+              </div>
+            </div>
+            <p class="service-desc">カウンセリング重視のカット例。実際の内容・料金に差し替えます。</p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn btn--solid">相談する</a>
+                <a href="tel:0580000000" class="btn">電話で相談</a>
+            </div>
+          </div>
+        </article>
+        <article class="service-card has-image fade-in">
+            <div class="service-photo"><img alt="カラー" loading="lazy" decoding="async" src="img/salon-tools.png" /></div>
+          <div class="service-main">
+            <p class="service-icon">🎨</p>
+            <div class="service-head">
+              <h3 class="service-name">カラー</h3>
+              <div class="service-price">
+                <p class="service-price-main">ご相談</p>
+                <p class="service-price-note">見本</p>
+              </div>
+            </div>
+            <p class="service-desc">白髪染め・デザインカラー等の見せ方の例です。</p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn btn--solid">相談する</a>
+                <a href="tel:0580000000" class="btn">電話で相談</a>
+            </div>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="service-main">
+            <p class="service-icon">💆</p>
+            <div class="service-head">
+              <h3 class="service-name">トリートメント／ヘッドスパ</h3>
+              <div class="service-price">
+                <p class="service-price-main">ご相談</p>
+                <p class="service-price-note">見本</p>
+              </div>
+            </div>
+            <p class="service-desc">癒しメニューの訴求例。写真と料金は貴店データに差し替え。</p>
+            <div class="service-actions">
+              <a href="contact.html" class="btn btn--solid">相談する</a>
+                <a href="tel:0580000000" class="btn">電話で相談</a>
+            </div>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="flow-section">
+  <div class="container">
+    <span class="section-eyebrow fade-in">Flow</span>
+    <h2 class="section-title fade-in">ご相談の流れ</h2>
+    <div class="divider fade-in"></div>
+    <div class="flow-steps">
+      <div class="flow-step fade-in"><p class="flow-num">01</p><p class="flow-label">お問い合わせ</p><p class="flow-desc">フォームまたは電話で、ご希望やお困りごとをお知らせください。</p></div>
+      <div class="flow-step fade-in"><p class="flow-num">02</p><p class="flow-label">内容確認</p><p class="flow-desc">用途、数量、時期、必要な条件などを確認します。</p></div>
+      <div class="flow-step fade-in"><p class="flow-num">03</p><p class="flow-label">ご提案</p><p class="flow-desc">確認した内容に合わせて、取扱商品や進め方をご案内します。</p></div>
+      <div class="flow-step fade-in"><p class="flow-num">04</p><p class="flow-label">ご案内</p><p class="flow-desc">内容確認後、見積りや注文・相談の流れをご案内します。</p></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner { background: var(--ink); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+  .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 50% 50%, color-mix(in srgb, var(--gold) 9%, transparent), transparent 72%); pointer-events: none; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 38px); font-weight: 600; color: var(--white); margin-bottom: 12px; position: relative; }
+  .cta-sub { color: rgba(255,255,255,0.5); font-size: 13px; margin-bottom: 36px; position: relative; }
+  .cta-tel { margin-top: 24px; color: rgba(255,255,255,0.55); font-size: 13px; font-family: var(--font-en); letter-spacing: 0.15em; position: relative; }
+  .cta-tel a { color: var(--gold); font-size: 18px; font-weight: 500; }
+</style>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2 class="cta-title fade-in">サロンサイトのリニューアル見本です</h2>
+    <p class="cta-sub fade-in">貴店の情報に差し替えて制作します。まずはお気軽に</p>
+      <div class="fade-in" style="position: relative;">
+        <a href="contact.html" class="btn btn--solid">ご予約・お問い合わせ</a>
+      </div>
+      <p class="cta-tel fade-in">
+        お電話でのご予約：<a href="tel:0580000000">058-000-0000</a><br>
+        9:00〜19:00 / 毎週月曜・第3火曜
+      </p>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-logo-ja">サンプルサロン BELLE</p>
+      <p class="footer-logo-en">Sample Salon (Template Demo)</p>
+      <p class="footer-desc">※本サイトは営業提案用のテンプレート見本（架空のサンプルサロン）です。<br>実際の店名・連絡先・料金・お客様の声は、貴店の情報に差し替えて制作します。</p>
+    </div>
+    <div>
+      <p class="footer-heading">Navigation</p>
+      <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="voice.html">Voice</a></li>
+          <li><a href="access.html">Access</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Info</p>
+      <div class="footer-info">
+        
+        岐阜県岐阜市サンプル町1-2-3（テンプレート見本）<br><br>
+        TEL: <a href="tel:0580000000" style="color:inherit;">058-000-0000</a><br><br>
+        営業時間：9:00〜19:00<br>
+        定休日：毎週月曜・第3火曜
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 サンプルサロン BELLE. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a class="mc-tel" href="tel:0580000000">電話する</a>
+  <a class="mc-reserve" href="contact.html">お問い合わせ</a>
+</div>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.getElementById('hamburger').addEventListener('click', () => {
+    const nav = document.querySelector('.nav-links');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  });
+</script>
+</body>
+</html>
